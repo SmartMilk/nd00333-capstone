@@ -2,8 +2,7 @@
 
 # Udacity Nanodegree - Machine Learning Engineer Capstone Project
 
-*TODO:* Write a short introduction to your project.
-
+For the final project of the Udacity Nanodegree - Machine Learning Engineer, I have chosen to use the popular UCI dataset Census Income dataset(referred to as the "salary" dataset). The main objective of this project is to construct models via AutoML and HyperDrive Azure models and select the best model that can predict whether an individual, based on their census characteristics, will have an annual salary exceeding $50k. The resultant best model is then deployed and validated as a REST endpoint on Azure Container Instance. 
 
 
 ## Project Set Up and Installation
