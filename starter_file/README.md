@@ -4,8 +4,14 @@
 
 *TODO:* Write a short introduction to your project.
 
+
+
 ## Project Set Up and Installation
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
+
+To download the Kaggle dataset, a Kaggle account is required to create the authorization credentials. Once an account has been created, you can generate the json file containing the relevant credentials by going to Kaggle's account settings and selecting the 'generate api' option. Add the kaggle.json file to your working directory. No other special steps are required. 
+
+![grep](https://github.com/SmartMilk/nd00333-capstone/blob/db32400d9a45d4483a6476339bf7cc3866f93633/starter_file/Proj_Images/kaggle_api_token_generate.jpg)
 
 ## Dataset
 
