@@ -1,0 +1,547 @@
+2023-01-27 14:11:09.899 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:11:09.919 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:11:09.939 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-01-27 14:11:10.125 - CRITICAL - 5582 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ServiceException
+Message: ServiceException:
+	Code: 404
+	Message: (UserError) Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output was not found
+	Details:
+
+	Headers: {
+	    "Date": "Fri, 27 Jan 2023 14:11:10 GMT",
+	    "Content-Type": "application/json; charset=utf-8",
+	    "Transfer-Encoding": "chunked",
+	    "Connection": "keep-alive",
+	    "Vary": "Accept-Encoding",
+	    "Request-Context": "appId=cid-v1:0b9f2aab-286f-47f9-a21f-7375db712590",
+	    "x-ms-response-type": "error",
+	    "Strict-Transport-Security": "max-age=15724800; includeSubDomains; preload",
+	    "X-Content-Type-Options": "nosniff",
+	    "x-aml-cluster": "vienna-uksouth-01",
+	    "x-request-time": "0.042",
+	    "Content-Encoding": "gzip"
+	}
+	InnerException: {
+    "additional_properties": {},
+    "error": {
+        "additional_properties": {
+            "debugInfo": null
+        },
+        "code": "UserError",
+        "severity": null,
+        "message": "Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output was not found",
+        "message_format": "Run {runId} was not found",
+        "message_parameters": {
+            "runId": "AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output"
+        },
+        "reference_code": null,
+        "details_uri": null,
+        "target": null,
+        "details": [],
+        "inner_error": {
+            "additional_properties": {},
+            "code": "NotFoundError",
+            "inner_error": null
+        },
+        "additional_info": null
+    },
+    "correlation": {
+        "operation": "80ca39b7a6c32f93e975a16b175f4d6b",
+        "request": "37270ffef36da047"
+    },
+    "environment": "uksouth",
+    "location": "uksouth",
+    "time": {},
+    "component_name": "run-history"
+}
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 793, in _get_run_internal
+    curr_run = self._get_automl_child_iteration(iteration, parent_tags=run_tags)
+  File "run.py", line 878, in _get_automl_child_iteration
+    curr_run = Run(experiment=self.experiment, run_id=child_run_id)
+  File "run.py", line 173, in __init__
+    super(Run, self).__init__(experiment, run_id, outputs=outputs, **kwargs)
+  File "run_base.py", line 89, in __init__
+    self._client = RunHistoryFacade(self._experiment, self._run_id, RUN_ORIGIN, run_dto=_run_dto,
+  File "run_history_facade.py", line 96, in __init__
+    self.run_dto = run_dto if run_dto is not None else self.run.get_run()
+  File "run_client.py", line 78, in get_run
+    return super(RunClient, self).get_run(self._run_id, **kwargs)
+  File "experiment_client.py", line 126, in get_run
+    return self._execute_with_experimentid_arguments(self._client.run.get_by_exp_id,
+  File "experiment_client.py", line 265, in _execute_with_experimentid_arguments
+    return self._execute_with_arguments(func,
+  File "clientbase.py", line 591, in _execute_with_arguments
+    raise ServiceException(e)
+
+ExceptionTarget: Unspecified
+2023-01-27 14:11:10.126 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Failure, Duration=186.84[ms]
+2023-01-27 14:11:10.127 - CRITICAL - 5582 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ServiceException
+Message: ServiceException:
+	Code: 404
+	Message: (UserError) Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output was not found
+	Details:
+
+	Headers: {
+	    "Date": "Fri, 27 Jan 2023 14:11:10 GMT",
+	    "Content-Type": "application/json; charset=utf-8",
+	    "Transfer-Encoding": "chunked",
+	    "Connection": "keep-alive",
+	    "Vary": "Accept-Encoding",
+	    "Request-Context": "appId=cid-v1:0b9f2aab-286f-47f9-a21f-7375db712590",
+	    "x-ms-response-type": "error",
+	    "Strict-Transport-Security": "max-age=15724800; includeSubDomains; preload",
+	    "X-Content-Type-Options": "nosniff",
+	    "x-aml-cluster": "vienna-uksouth-01",
+	    "x-request-time": "0.042",
+	    "Content-Encoding": "gzip"
+	}
+	InnerException: {
+    "additional_properties": {},
+    "error": {
+        "additional_properties": {
+            "debugInfo": null
+        },
+        "code": "UserError",
+        "severity": null,
+        "message": "Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output was not found",
+        "message_format": "Run {runId} was not found",
+        "message_parameters": {
+            "runId": "AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output"
+        },
+        "reference_code": null,
+        "details_uri": null,
+        "target": null,
+        "details": [],
+        "inner_error": {
+            "additional_properties": {},
+            "code": "NotFoundError",
+            "inner_error": null
+        },
+        "additional_info": null
+    },
+    "correlation": {
+        "operation": "80ca39b7a6c32f93e975a16b175f4d6b",
+        "request": "37270ffef36da047"
+    },
+    "environment": "uksouth",
+    "location": "uksouth",
+    "time": {},
+    "component_name": "run-history"
+}
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 639, in _get_best_child_run
+    curr_run = self._get_run_internal(iteration, metric, "get_output")
+  File "run.py", line 793, in _get_run_internal
+    curr_run = self._get_automl_child_iteration(iteration, parent_tags=run_tags)
+  File "run.py", line 878, in _get_automl_child_iteration
+    curr_run = Run(experiment=self.experiment, run_id=child_run_id)
+  File "run.py", line 173, in __init__
+    super(Run, self).__init__(experiment, run_id, outputs=outputs, **kwargs)
+  File "run_base.py", line 89, in __init__
+    self._client = RunHistoryFacade(self._experiment, self._run_id, RUN_ORIGIN, run_dto=_run_dto,
+  File "run_history_facade.py", line 96, in __init__
+    self.run_dto = run_dto if run_dto is not None else self.run.get_run()
+  File "run_client.py", line 78, in get_run
+    return super(RunClient, self).get_run(self._run_id, **kwargs)
+  File "experiment_client.py", line 126, in get_run
+    return self._execute_with_experimentid_arguments(self._client.run.get_by_exp_id,
+  File "experiment_client.py", line 265, in _execute_with_experimentid_arguments
+    return self._execute_with_arguments(func,
+  File "clientbase.py", line 591, in _execute_with_arguments
+    raise ServiceException(e)
+
+ExceptionTarget: Unspecified
+2023-01-27 14:11:10.127 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=208.05[ms]
+2023-01-27 14:11:10.128 - CRITICAL - 5582 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ServiceException
+Message: ServiceException:
+	Code: 404
+	Message: (UserError) Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output was not found
+	Details:
+
+	Headers: {
+	    "Date": "Fri, 27 Jan 2023 14:11:10 GMT",
+	    "Content-Type": "application/json; charset=utf-8",
+	    "Transfer-Encoding": "chunked",
+	    "Connection": "keep-alive",
+	    "Vary": "Accept-Encoding",
+	    "Request-Context": "appId=cid-v1:0b9f2aab-286f-47f9-a21f-7375db712590",
+	    "x-ms-response-type": "error",
+	    "Strict-Transport-Security": "max-age=15724800; includeSubDomains; preload",
+	    "X-Content-Type-Options": "nosniff",
+	    "x-aml-cluster": "vienna-uksouth-01",
+	    "x-request-time": "0.042",
+	    "Content-Encoding": "gzip"
+	}
+	InnerException: {
+    "additional_properties": {},
+    "error": {
+        "additional_properties": {
+            "debugInfo": null
+        },
+        "code": "UserError",
+        "severity": null,
+        "message": "Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output was not found",
+        "message_format": "Run {runId} was not found",
+        "message_parameters": {
+            "runId": "AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_metrics_output"
+        },
+        "reference_code": null,
+        "details_uri": null,
+        "target": null,
+        "details": [],
+        "inner_error": {
+            "additional_properties": {},
+            "code": "NotFoundError",
+            "inner_error": null
+        },
+        "additional_info": null
+    },
+    "correlation": {
+        "operation": "80ca39b7a6c32f93e975a16b175f4d6b",
+        "request": "37270ffef36da047"
+    },
+    "environment": "uksouth",
+    "location": "uksouth",
+    "time": {},
+    "component_name": "run-history"
+}
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 707, in get_output
+    curr_run, model_name = self._get_best_child_run(
+  File "run.py", line 639, in _get_best_child_run
+    curr_run = self._get_run_internal(iteration, metric, "get_output")
+  File "run.py", line 793, in _get_run_internal
+    curr_run = self._get_automl_child_iteration(iteration, parent_tags=run_tags)
+  File "run.py", line 878, in _get_automl_child_iteration
+    curr_run = Run(experiment=self.experiment, run_id=child_run_id)
+  File "run.py", line 173, in __init__
+    super(Run, self).__init__(experiment, run_id, outputs=outputs, **kwargs)
+  File "run_base.py", line 89, in __init__
+    self._client = RunHistoryFacade(self._experiment, self._run_id, RUN_ORIGIN, run_dto=_run_dto,
+  File "run_history_facade.py", line 96, in __init__
+    self.run_dto = run_dto if run_dto is not None else self.run.get_run()
+  File "run_client.py", line 78, in get_run
+    return super(RunClient, self).get_run(self._run_id, **kwargs)
+  File "experiment_client.py", line 126, in get_run
+    return self._execute_with_experimentid_arguments(self._client.run.get_by_exp_id,
+  File "experiment_client.py", line 265, in _execute_with_experimentid_arguments
+    return self._execute_with_arguments(func,
+  File "clientbase.py", line 591, in _execute_with_arguments
+    raise ServiceException(e)
+
+ExceptionTarget: Unspecified
+2023-01-27 14:11:10.128 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=229.22[ms]
+2023-01-27 14:11:52.930 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:11:52.950 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:11:52.968 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-01-27 14:11:53.108 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=140.51[ms]
+2023-01-27 14:11:53.169 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=218.59[ms]
+2023-01-27 14:11:53.169 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-01-27 14:11:57.116 - INFO - 5582 - azureml.training.tabular.featurization.text.pretrained_text_dnn_transformer.horovod_initialized:66 - Horovod not found in current environment. Distribution via Horovod will be disabled.
+2023-01-27 14:11:58.959 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-01-27 14:11:58.960 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-01-27 14:12:01.233 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=8063.84[ms]
+2023-01-27 14:12:01.291 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=8360.56[ms]
+2023-01-27 14:22:49.789 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:22:49.810 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:22:49.830 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-01-27 14:22:49.961 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=130.99[ms]
+2023-01-27 14:22:50.023 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=213.59[ms]
+2023-01-27 14:22:50.024 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-01-27 14:22:50.931 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-01-27 14:22:50.931 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-01-27 14:22:51.017 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=993.51[ms]
+2023-01-27 14:22:51.018 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=1228.47[ms]
+2023-01-27 14:25:33.234 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:25:33.255 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:25:33.274 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-01-27 14:25:33.407 - CRITICAL - 5582 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ServiceException
+Message: ServiceException:
+	Code: 404
+	Message: (UserError) Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output was not found
+	Details:
+
+	Headers: {
+	    "Date": "Fri, 27 Jan 2023 14:25:33 GMT",
+	    "Content-Type": "application/json; charset=utf-8",
+	    "Transfer-Encoding": "chunked",
+	    "Connection": "keep-alive",
+	    "Vary": "Accept-Encoding",
+	    "Request-Context": "appId=cid-v1:0b9f2aab-286f-47f9-a21f-7375db712590",
+	    "x-ms-response-type": "error",
+	    "Strict-Transport-Security": "max-age=15724800; includeSubDomains; preload",
+	    "X-Content-Type-Options": "nosniff",
+	    "x-aml-cluster": "vienna-uksouth-01",
+	    "x-request-time": "0.031",
+	    "Content-Encoding": "gzip"
+	}
+	InnerException: {
+    "additional_properties": {},
+    "error": {
+        "additional_properties": {
+            "debugInfo": null
+        },
+        "code": "UserError",
+        "severity": null,
+        "message": "Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output was not found",
+        "message_format": "Run {runId} was not found",
+        "message_parameters": {
+            "runId": "AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output"
+        },
+        "reference_code": null,
+        "details_uri": null,
+        "target": null,
+        "details": [],
+        "inner_error": {
+            "additional_properties": {},
+            "code": "NotFoundError",
+            "inner_error": null
+        },
+        "additional_info": null
+    },
+    "correlation": {
+        "operation": "dde2a06ed5bd0d5575a0ca75095b9b11",
+        "request": "3edf3a2caa9fe1bd"
+    },
+    "environment": "uksouth",
+    "location": "uksouth",
+    "time": {},
+    "component_name": "run-history"
+}
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 793, in _get_run_internal
+    curr_run = self._get_automl_child_iteration(iteration, parent_tags=run_tags)
+  File "run.py", line 878, in _get_automl_child_iteration
+    curr_run = Run(experiment=self.experiment, run_id=child_run_id)
+  File "run.py", line 173, in __init__
+    super(Run, self).__init__(experiment, run_id, outputs=outputs, **kwargs)
+  File "run_base.py", line 89, in __init__
+    self._client = RunHistoryFacade(self._experiment, self._run_id, RUN_ORIGIN, run_dto=_run_dto,
+  File "run_history_facade.py", line 96, in __init__
+    self.run_dto = run_dto if run_dto is not None else self.run.get_run()
+  File "run_client.py", line 78, in get_run
+    return super(RunClient, self).get_run(self._run_id, **kwargs)
+  File "experiment_client.py", line 126, in get_run
+    return self._execute_with_experimentid_arguments(self._client.run.get_by_exp_id,
+  File "experiment_client.py", line 265, in _execute_with_experimentid_arguments
+    return self._execute_with_arguments(func,
+  File "clientbase.py", line 591, in _execute_with_arguments
+    raise ServiceException(e)
+
+ExceptionTarget: Unspecified
+2023-01-27 14:25:33.407 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Failure, Duration=133.7[ms]
+2023-01-27 14:25:33.408 - CRITICAL - 5582 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ServiceException
+Message: ServiceException:
+	Code: 404
+	Message: (UserError) Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output was not found
+	Details:
+
+	Headers: {
+	    "Date": "Fri, 27 Jan 2023 14:25:33 GMT",
+	    "Content-Type": "application/json; charset=utf-8",
+	    "Transfer-Encoding": "chunked",
+	    "Connection": "keep-alive",
+	    "Vary": "Accept-Encoding",
+	    "Request-Context": "appId=cid-v1:0b9f2aab-286f-47f9-a21f-7375db712590",
+	    "x-ms-response-type": "error",
+	    "Strict-Transport-Security": "max-age=15724800; includeSubDomains; preload",
+	    "X-Content-Type-Options": "nosniff",
+	    "x-aml-cluster": "vienna-uksouth-01",
+	    "x-request-time": "0.031",
+	    "Content-Encoding": "gzip"
+	}
+	InnerException: {
+    "additional_properties": {},
+    "error": {
+        "additional_properties": {
+            "debugInfo": null
+        },
+        "code": "UserError",
+        "severity": null,
+        "message": "Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output was not found",
+        "message_format": "Run {runId} was not found",
+        "message_parameters": {
+            "runId": "AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output"
+        },
+        "reference_code": null,
+        "details_uri": null,
+        "target": null,
+        "details": [],
+        "inner_error": {
+            "additional_properties": {},
+            "code": "NotFoundError",
+            "inner_error": null
+        },
+        "additional_info": null
+    },
+    "correlation": {
+        "operation": "dde2a06ed5bd0d5575a0ca75095b9b11",
+        "request": "3edf3a2caa9fe1bd"
+    },
+    "environment": "uksouth",
+    "location": "uksouth",
+    "time": {},
+    "component_name": "run-history"
+}
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 639, in _get_best_child_run
+    curr_run = self._get_run_internal(iteration, metric, "get_output")
+  File "run.py", line 793, in _get_run_internal
+    curr_run = self._get_automl_child_iteration(iteration, parent_tags=run_tags)
+  File "run.py", line 878, in _get_automl_child_iteration
+    curr_run = Run(experiment=self.experiment, run_id=child_run_id)
+  File "run.py", line 173, in __init__
+    super(Run, self).__init__(experiment, run_id, outputs=outputs, **kwargs)
+  File "run_base.py", line 89, in __init__
+    self._client = RunHistoryFacade(self._experiment, self._run_id, RUN_ORIGIN, run_dto=_run_dto,
+  File "run_history_facade.py", line 96, in __init__
+    self.run_dto = run_dto if run_dto is not None else self.run.get_run()
+  File "run_client.py", line 78, in get_run
+    return super(RunClient, self).get_run(self._run_id, **kwargs)
+  File "experiment_client.py", line 126, in get_run
+    return self._execute_with_experimentid_arguments(self._client.run.get_by_exp_id,
+  File "experiment_client.py", line 265, in _execute_with_experimentid_arguments
+    return self._execute_with_arguments(func,
+  File "clientbase.py", line 591, in _execute_with_arguments
+    raise ServiceException(e)
+
+ExceptionTarget: Unspecified
+2023-01-27 14:25:33.408 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=153.15[ms]
+2023-01-27 14:25:33.409 - CRITICAL - 5582 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ServiceException
+Message: ServiceException:
+	Code: 404
+	Message: (UserError) Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output was not found
+	Details:
+
+	Headers: {
+	    "Date": "Fri, 27 Jan 2023 14:25:33 GMT",
+	    "Content-Type": "application/json; charset=utf-8",
+	    "Transfer-Encoding": "chunked",
+	    "Connection": "keep-alive",
+	    "Vary": "Accept-Encoding",
+	    "Request-Context": "appId=cid-v1:0b9f2aab-286f-47f9-a21f-7375db712590",
+	    "x-ms-response-type": "error",
+	    "Strict-Transport-Security": "max-age=15724800; includeSubDomains; preload",
+	    "X-Content-Type-Options": "nosniff",
+	    "x-aml-cluster": "vienna-uksouth-01",
+	    "x-request-time": "0.031",
+	    "Content-Encoding": "gzip"
+	}
+	InnerException: {
+    "additional_properties": {},
+    "error": {
+        "additional_properties": {
+            "debugInfo": null
+        },
+        "code": "UserError",
+        "severity": null,
+        "message": "Run AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output was not found",
+        "message_format": "Run {runId} was not found",
+        "message_parameters": {
+            "runId": "AutoML_28efe5c5-3096-4383-a735-b22df3dfa063_best_model_output"
+        },
+        "reference_code": null,
+        "details_uri": null,
+        "target": null,
+        "details": [],
+        "inner_error": {
+            "additional_properties": {},
+            "code": "NotFoundError",
+            "inner_error": null
+        },
+        "additional_info": null
+    },
+    "correlation": {
+        "operation": "dde2a06ed5bd0d5575a0ca75095b9b11",
+        "request": "3edf3a2caa9fe1bd"
+    },
+    "environment": "uksouth",
+    "location": "uksouth",
+    "time": {},
+    "component_name": "run-history"
+}
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 707, in get_output
+    curr_run, model_name = self._get_best_child_run(
+  File "run.py", line 639, in _get_best_child_run
+    curr_run = self._get_run_internal(iteration, metric, "get_output")
+  File "run.py", line 793, in _get_run_internal
+    curr_run = self._get_automl_child_iteration(iteration, parent_tags=run_tags)
+  File "run.py", line 878, in _get_automl_child_iteration
+    curr_run = Run(experiment=self.experiment, run_id=child_run_id)
+  File "run.py", line 173, in __init__
+    super(Run, self).__init__(experiment, run_id, outputs=outputs, **kwargs)
+  File "run_base.py", line 89, in __init__
+    self._client = RunHistoryFacade(self._experiment, self._run_id, RUN_ORIGIN, run_dto=_run_dto,
+  File "run_history_facade.py", line 96, in __init__
+    self.run_dto = run_dto if run_dto is not None else self.run.get_run()
+  File "run_client.py", line 78, in get_run
+    return super(RunClient, self).get_run(self._run_id, **kwargs)
+  File "experiment_client.py", line 126, in get_run
+    return self._execute_with_experimentid_arguments(self._client.run.get_by_exp_id,
+  File "experiment_client.py", line 265, in _execute_with_experimentid_arguments
+    return self._execute_with_arguments(func,
+  File "clientbase.py", line 591, in _execute_with_arguments
+    raise ServiceException(e)
+
+ExceptionTarget: Unspecified
+2023-01-27 14:25:33.409 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=174.56[ms]
+2023-01-27 14:26:39.476 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:26:39.497 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:26:39.515 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-01-27 14:26:39.851 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=336.27[ms]
+2023-01-27 14:26:39.956 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=459.68[ms]
+2023-01-27 14:26:39.957 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-01-27 14:26:40.964 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-01-27 14:26:40.964 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-01-27 14:26:41.045 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=1088.39[ms]
+2023-01-27 14:26:41.046 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=1569.34[ms]
+2023-01-27 14:30:14.812 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:30:14.832 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:30:14.852 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-01-27 14:30:15.124 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=272.06[ms]
+2023-01-27 14:30:15.241 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=409.39[ms]
+2023-01-27 14:30:15.242 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-01-27 14:30:16.559 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-01-27 14:30:16.560 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-01-27 14:30:16.651 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=1409.39[ms]
+2023-01-27 14:30:16.652 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=1840.04[ms]
+2023-01-27 14:30:52.619 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:30:52.633 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:30:52.654 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-01-27 14:30:52.965 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=311.43[ms]
+2023-01-27 14:30:53.061 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=427.46[ms]
+2023-01-27 14:30:53.061 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-01-27 14:30:54.064 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-01-27 14:30:54.064 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-01-27 14:30:54.185 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=1124.06[ms]
+2023-01-27 14:30:54.186 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=1566.79[ms]
+2023-01-27 14:32:09.298 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:32:09.320 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-01-27 14:32:09.338 - INFO - 5582 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-01-27 14:32:09.491 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=152.97[ms]
+2023-01-27 14:32:09.549 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=228.74[ms]
+2023-01-27 14:32:09.549 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-01-27 14:32:10.388 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-01-27 14:32:10.388 - INFO - 5582 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-01-27 14:32:10.474 - INFO - 5582 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=924.92[ms]
+2023-01-27 14:32:10.474 - INFO - 5582 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=1176.35[ms]
