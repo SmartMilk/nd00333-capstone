@@ -66,6 +66,11 @@ This produces a cleaned dataset (salary_cleaned.csv) which is ready to be used i
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
 
+AutoML configuration is relatively simple. Aside from the target dataset (the cleaned dataset) and the target label, the only other parameters that were considered were the experiment timeout -set to 30 minutes to reduce on azure resource usage- and the primary metric for parameter tuning, which was chosen to be accuracy, a standard method of evaluating machine learning models. If this were a multiclass classification issue, or there was imperative to penalize models for false positives/false negatives, then alternative metrics such as F1 and weighted AUC would have been used. However the simplicity of the classification problem permits the applicability of accuracy. Finally, calculations were performed on a remote cluster with the maximum amount of concurrent iterations set to 5, allowing one iteration to be run on each provided node. 
+
+The selection process of models by the AutoML algorithm is proprietary, however it can choose any one of the classification models listed from Azure documentation screenshot below. The model that provided the best performance is described in the results hereafter. 
+![automl documentation](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/AutoML_supported_models.jpg)
+
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
