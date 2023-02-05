@@ -90,13 +90,15 @@ For the HyperDrive approach, the Support Vector Classifier(SVC) was chosen as th
 
 - **Polynomial**: In the case of a polynomial kernel, this parameter determines the polynomial's degree, and was limited to be between 1 and 8. The parameter is ignored otherwise. 
 
-The parameter sampling method was chosen to be Bayesian optimization, hence there was no need to apply an early termination policy. The estimator was generated from a Python training script (*hp_train.py*). Finally, the maximum number of HyperDrive runs was limited to 80, as per an auto-generated recommendation by Azure's CLI based on the number of input parameters. 
+The parameter sampling method was chosen to be Bayesian optimization, hence there was no need to apply an early termination policy. The estimator was generated from a Python training script (*hp_train.py*). In order to ensure fair comparison with the AutoML model, the training process was set to optimize accuracy as the primary metric. Finally, the maximum number of HyperDrive runs was limited to 80, as per an auto-generated recommendation by Azure's CLI based on the number of input parameters. 
 
 
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+
+The completed HyperDrive run revealed that the SVC model could achieve up to maximum of 81.7% mean accuracy with C = 2, the kernel set to polynomial and with a degree of 7, the output of each run and the corresponding tuning parameters can be seen in the screenshots below. As the regulazation parameter is at its maximum value, this implies the model has a degree of underfitting, and could probably be improved by further increasing the maximum range of C. This of course means there will be greater computational cost. 
 
 ![rundetails hyperdrive](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/hyperdrive_runs_and_performance.jpg)
 
@@ -105,7 +107,15 @@ The parameter sampling method was chosen to be Bayesian optimization, hence ther
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
+As the AutoML model vastly outperformed the HyperDrive model, the AutoML model was further selected to be deployed as an endpoint. The model is deployed as a REST endpoint on an Azure container instance, using a simple configuration of 1 CPU core and 1GB memory limit to reduce Azure costs. The successfully deployed model is shown in the screenshot below. Application Insights was also enabled in order to monitor the health of the webservice, which can be seen in further detail in the project screencast. 
+
+![healthy endpoint](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/healthy_endpoint_active.jpg)
+
+To validate the endpoint was working as intended, 2 test datapoints in a JSON-formatted parameter (matching the format of the cleaned salary dataset) are fed into the endpoint using the *requests* package. 2 corresponding results [1 0] were produced by the endpoint (1 indicating a greater than $50k salary, 0 less than), showing that the endpoint was working correctly. Evidence of the successful endpoint test are shown in the screenshot below. 
+
+![endpoint test](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/Deployment_test.jpg)
+
 ## Screen Recording
-A screen recording showcasing the project can be access through this youtube link: https://youtu.be/--lG2rcdYYY
+A screen recording showcasing the project can be accessed through this youtube link: https://youtu.be/--lG2rcdYYY
 
 
