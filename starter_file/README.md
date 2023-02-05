@@ -10,7 +10,7 @@ For the final project of the Udacity Nanodegree - Machine Learning Engineer, I h
 
 To download the dataset from Kaggle, a Kaggle account is required to create the authorization credentials. Once an account has been created, you can generate the json file containing the relevant credentials by going to Kaggle's account settings and selecting the 'generate api' option. Add the kaggle.json file to your working directory. No other special steps are required. 
 
-![grep](https://github.com/SmartMilk/nd00333-capstone/blob/db32400d9a45d4483a6476339bf7cc3866f93633/starter_file/Proj_Images/kaggle_api_token_generate.jpg)
+![kaggle page](https://github.com/SmartMilk/nd00333-capstone/blob/db32400d9a45d4483a6476339bf7cc3866f93633/starter_file/Proj_Images/kaggle_api_token_generate.jpg)
 
 ## Dataset
 
@@ -73,8 +73,12 @@ The selection process of models by the AutoML algorithm is proprietary, however 
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
-
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+The completed AutoML experiment revealed that the best performing model was a complex Voting Ensemble classifier with a maximum mean recognition accuracy of 88.6%, as detailed in the screenshots below. The Voting Ensemble is comprised of 12 sub-classifiers; largely XGBoost and Random Forest classifiers each built out of their own set of weak learner models with their own weights. Given the inherent complexity of the model, it is difficult to comment on how the Voting Ensemble could have been further optimized, other than to simply allow the AutoML module to run for hours or even days to find a more optimized combination. 
+
+![rundetails automl](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/autoML_rundetails_widget.jpg)
+
+![automl bestrun model](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/automl_fitted_model_properties_and_ID.jpg)
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
