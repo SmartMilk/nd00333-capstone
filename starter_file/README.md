@@ -47,7 +47,7 @@ The data is accessed from Kaggle APIs using authorization credentials. See "Proj
 
 In its raw format, the data is unsuitable to be fed directly into the AutoML or HyperDrive modules, and must undergo a cleaning process. 
 
-The dataset has been prior explored by Nikita Verma in a [medium](https://medium.com/analytics-vidhya/machine-learning-application-census-income-prediction-868227debf12) article. As exploratory data analysis is not the focus of the project/course, most of the key steps taken by the article are repeated in a concise format (with a few deviations) to prepare the dataset for AutoML/Hyperdrive (with random checks to ensure steps are consistent).
+The dataset has been prior explored by Nikita Verma in a [medium](https://medium.com/analytics-vidhya/machine-learning-application-census-income-prediction-868227debf12) article. As exploratory data analysis is not the focus of the project/course, most of the key steps taken by the article are repeated in a concise format (with a few deviations) to prepare the dataset for AutoML/Hyperdrive (with random checks to ensure steps are consistent). In essence, the objective of the dataset cleaning is to consolidate categorical variables that either have similar logical meaning (e.g merging jobs in local and state government into a single title) or follow similar distributions in terms of their salary prediction. This helps to reduce the likeliness of outliers in niche categories from skewing the prediction model. 
 
 The dataset is prepared in the following order:
 
