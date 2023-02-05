@@ -68,7 +68,7 @@ The selection process of models by the AutoML algorithm is proprietary, however 
 
 ### Results
 
-The completed AutoML experiment revealed that the best performing model was a complex Voting Ensemble classifier with a maximum mean recognition accuracy of 88.6%, as detailed in the screenshots below. The Voting Ensemble is comprised of 12 sub-classifiers; largely XGBoost and Random Forest classifiers each built out of their own set of weak learner models with their own weights. Given the inherent complexity of the model, it is difficult to comment on how the Voting Ensemble could have been further optimized, other than to simply allow the AutoML module to run for hours or even days to find a more optimized combination. 
+The completed AutoML experiment revealed that the best performing model was a complex Voting Ensemble classifier with a maximum mean recognition accuracy of 88.6%, as detailed in the screenshots below. The Voting Ensemble is comprised of 12 sub-classifiers; largely XGBoost and Random Forest classifiers each built out of their own set of weak learner models with their own weights. Given the inherent complexity of the AutoML model, it is difficult to comment on how the Voting Ensemble could have been further optimized, however the AutoML model could be improved simply by extending the experiment timeout variable to several hours or even days. This would increase the probability of the AutoML module finding a more optimized model solution. 
 
 ![rundetails automl](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/autoML_rundetails_widget.jpg)
 
