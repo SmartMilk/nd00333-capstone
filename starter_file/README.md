@@ -5,6 +5,8 @@ For the final project of the Udacity Nanodegree - Machine Learning Engineer, I h
 
 ## Project Set Up and Installation
 
+The project is conducted almost entirely on Microsoft Azure Machine Learning Studio. At minimum, you will need to have access priveleges equal or equivalent to the *'AzureML Data Scientist'* role as listed in Azure's [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-assign-roles?tabs=labeler) to be able to replicate the steps shown in this project. You may also require an Azure administrator to provide access to Azure's compute instances and compute clusters. 
+
 To download the dataset from Kaggle, a Kaggle account is required to create the authorization credentials. Once an account has been created, you can generate the json file containing the relevant credentials by going to Kaggle's account settings and selecting the 'generate api' option. Add the kaggle.json file to your working directory. No other special steps are required. 
 
 ![kaggle page](https://github.com/SmartMilk/nd00333-capstone/blob/db32400d9a45d4483a6476339bf7cc3866f93633/starter_file/Proj_Images/kaggle_api_token_generate.jpg)
