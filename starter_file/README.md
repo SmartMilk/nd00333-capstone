@@ -82,6 +82,15 @@ The completed AutoML experiment revealed that the best performing model was a co
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+For the HyperDrive approach, the Support Vector Classifier(SVC) was chosen as the base classifier due to its general ability to fit most models well, based on past experiences. The SVC has 3 parameters that are tuned in the HyperDrive module:
+
+- **C**: The regularization parameter of the SVC; higher values create a reduction in variance but may lead to overfitting. After some initial trials, the optimal range of C was found to be on a uniform scale of 0.01 and 2. Exceeding a value of 2 significantly slowed down a run to take >10 minutes to complete. 
+
+- **Kernel**: The type of kernel to be fitted to the SVC model, with a choice of radial basis function(rbf), linear, polynomial or sigmoid kernels. 
+
+- **Polynomial**: In the case of a polynomial kernel, this parameter determines the polynomial's degree, and was limited to be between 1 and 8. The parameter is ignored otherwise. 
+
+The parameter sampling method was chosen to be Bayesian optimization, hence there was no need to apply an early termination policy. The estimator was generated from a Python training script (*hp_train.py*). Finally, the maximum number of HyperDrive runs was limited to 80, as per an auto-generated recommendation by Azure's CLI based on the number of input parameters. 
 
 
 ### Results
@@ -89,15 +98,14 @@ The completed AutoML experiment revealed that the best performing model was a co
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
+![rundetails hyperdrive](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/hyperdrive_runs_and_performance.jpg)
+
+![hyperdrive bestrun model](https://github.com/SmartMilk/nd00333-capstone/blob/master/starter_file/Proj_Images/best_hyperdrive_run_and_parameters.jpg)
+
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-Link to video: https://youtu.be/--lG2rcdYYY
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+A screen recording showcasing the project can be access through this youtube link: https://youtu.be/--lG2rcdYYY
 
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+
